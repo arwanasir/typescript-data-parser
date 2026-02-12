@@ -1,0 +1,24 @@
+{
+  "name": "typescript-data-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arwanasir/typescript-data-parser.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/arwanasir/typescript-data-parser/issues"
+  },
+  "homepage": "https://github.com/arwanasir/typescript-data-parser#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
