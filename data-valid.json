@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Arwa Nasir",
+      "email": "arwa@example.com",
+      "role": "user",
+      "createdAt": "2026-02-12T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "role": "admin",
+      "createdAt": "2026-02-11T08:30:00Z"
+    }
+ 
+
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "amount": 250,
+      "status": "Paid",
+      "createdAt": "2026-02-12T10:30:00Z"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "amount": 120,
+      "status": "Pending",
+      "createdAt": "2026-02-12T11:00:00Z"
+    }
+
+  ]
+}
+
