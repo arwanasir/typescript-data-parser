@@ -1,22 +1,22 @@
 # typescript-data-parser
 
+A robust, type-safe command-line tool designed to parse, validate, and summarize complex data structures from JSON files.
+
 ## Overview
 
-This project is a TypeScript-based data parser that:
+This project implements a rigorous data processing pipeline that:
 
-- Reads user and order data from JSON files
-- Validates the data
-- Filters out invalid entries
-- Produces clean, structured output
-- Generates a summary of valid data
-
-The parser ensures only correctly structured and logically valid data is processed.
+- **Loads** raw JSON data for Users and Orders.
+- **Validates** data integrity (Types, Formats, and Constraints).
+- **Enforces** referential integrity (ensuring Orders belong to valid Users).
+- **Aggregates** metrics like totals, averages, and status distribution.
 
 ## Technologies Used
 
-- TypeScript
-- Node.js
-- Jest (for testing)
+- **TypeScript**: For strict type safety and interface definitions.
+- **Node.js**: The runtime environment.
+- **Jest**: Comprehensive unit testing suite.
+- **Biome**: Next-generation formatting and linting.
 
 ## Project Structure
 
@@ -38,6 +38,7 @@ typescript-data-parser/
 ├── data-invalid.json
 ├──package-lock.json
 ├──biome.json
+├──jest.config.js
 ├── package.json
 ├── tsconfig.json
 ├──gitignore
@@ -48,7 +49,7 @@ typescript-data-parser/
 
 ### User Validation
 
-- Non-empty name
+- Valid name
 - Valid email format
 - Valid role
 - Valid creation date
@@ -71,27 +72,21 @@ typescript-data-parser/
 
 ```bash
 npm install
+
 ```
 
-### Compile TypeScript
+### Format and Lint
 
 ```bash
-npm run build
+npm run check
 ```
 
-### Run with sample data
+### Build and Run
 
 ```bash
-node dist/index.js data-valid.json
+npm run build  #build
+node dist/src/index.js data-valid.json   #run
 ```
-
-or
-
-```bash
-node dist/index.js data-invalid.json
-```
-
----
 
 ## Running Tests
 
@@ -112,15 +107,12 @@ The tests validate:
 ### Valid Input (`data-valid.json`)
 
 ```
-Valid Users: 2
-Valid Orders: 3
-Total Revenue: 150
-```
+Total user: 2
+Total order: 2
+Total Amount: 370
+Average Amount: 185
+order by status
 
-### Invalid Input (`data-invalid.json`)
-
-```
-Valid Users: 0
-Valid Orders: 0
-Total Revenue: 0
+Paid: 1
+Pending: 1
 ```
