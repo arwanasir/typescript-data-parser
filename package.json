@@ -1,35 +1,35 @@
 {
-  "name": "typescript-data-parser",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "start": "node dist/index.js",
-    "format": "biome format --write .",
-    "build": "tsc",
-    "lint": "biome lint .",
-    "check": "biome check --write .",
-    "ci": "biome ci ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arwanasir/typescript-data-parser.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/arwanasir/typescript-data-parser/issues"
-  },
-  "homepage": "https://github.com/arwanasir/typescript-data-parser#readme",
-  "devDependencies": {
-    "@biomejs/biome": "^2.3.14",
-    "@types/jest": "^30.0.0",
-    "@types/node": "^25.2.3",
-    "jest": "^30.2.0",
-    "ts-jest": "^29.4.6",
-    "typescript": "^5.9.3"
-  }
+	"name": "typescript-data-parser",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest",
+		"start": "node dist/index.js",
+		"format": "biome format --write .",
+		"build": "tsc",
+		"lint": "biome lint .",
+		"check": "biome check --write .",
+		"ci": "biome ci ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/arwanasir/typescript-data-parser.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/arwanasir/typescript-data-parser/issues"
+	},
+	"homepage": "https://github.com/arwanasir/typescript-data-parser#readme",
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.14",
+		"@types/jest": "^30.0.0",
+		"@types/node": "^25.2.3",
+		"jest": "^30.2.0",
+		"ts-jest": "^29.4.6",
+		"typescript": "^5.9.3"
+	}
 }

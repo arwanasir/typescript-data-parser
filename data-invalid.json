@@ -1,33 +1,34 @@
 {
-    "user":[
-        {
-        "id": 3,
-        "name": "Broken Email",
-        "email": "not-an-email",
-        "role": "admin",
-        "createdAt": "2026-02-12T12:00:00Z"
-    },
-    {
-         "id": 4,
-        "name": "",
-        "email": "missingrole@example.com",
-        "createdAt": "2026-02-12T12:00:00Z"
-}],
+	"users": [
+		{
+			"id": 3,
+			"name": "Broken Email",
+			"email": "not-an-email",
+			"role": "admin",
+			"createdAt": "2026-02-12T12:00:00Z"
+		},
+		{
+			"id": 4,
+			"name": "",
+			"email": "missingrole@example.com",
+			"createdAt": "2026-02-12T12:00:00Z"
+		}
+	],
 
-    "orders":[
-        {
-            "id": 3,
-            "userId": 999,
-            "amount": 150,
-            "status": "Paid",
-            "createdAt": "2026-02-12T13:00:00Z"
-        },
-        {
-            "id": 4,
-            "userId": 1,
-            "amount": -50,
-            "status": "Done",
-            "createdAt": ""
-}]
-
+	"orders": [
+		{
+			"id": 3,
+			"userId": 999,
+			"amount": 150,
+			"status": "Paid",
+			"createdAt": "2026-02-12T13:00:00Z"
+		},
+		{
+			"id": 4,
+			"userId": 1,
+			"amount": -50,
+			"status": "Done",
+			"createdAt": ""
+		}
+	]
 }

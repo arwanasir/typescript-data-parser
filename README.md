@@ -36,8 +36,11 @@ typescript-data-parser/
 │
 ├── data-valid.json
 ├── data-invalid.json
+├──package-lock.json
+├──biome.json
 ├── package.json
 ├── tsconfig.json
+├──gitignore
 └── README.md
 ```
 

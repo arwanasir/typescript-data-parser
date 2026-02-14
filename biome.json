@@ -5,7 +5,8 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"includes": ["src/**/*.js"]
+		"ignoreUnknown": false,
+		"includes": ["src/**/*.ts", "tests/**/*.ts", "*.json"]
 	},
 	"formatter": {
 		"enabled": true,

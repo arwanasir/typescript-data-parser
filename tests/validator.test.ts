@@ -1,90 +1,76 @@
-import { validateUser,validateOrder } from "../src/services/validator";
-import { Order, User } from "../src/models";
+import type { Order, User } from "../src/models";
+import { validateOrder, validateUser } from "../src/services/validator";
 
 describe("User Validation", () => {
-  it("should keep only valid users", () => {
-    const users: User[] = [
-      {
-        id: 1,
-        name: "Arwa",
-        email: "arwa@gmail.com",
-        role: "admin",
-        createdAt: "2020-09-09",
-      }
-    ];
+	it("should return zero errors for valid users", () => {
+		const users: User[] = [
+			{
+				id: 1,
+				name: "Arwa",
+				email: "arwa@gmail.com",
+				role: "admin",
+				createdAt: "2020-09-09",
+			},
+		];
+		const result = validateUser(users);
+		expect(result.length).toBe(0);
+	});
 
-    const result = validateUser(users);
-    expect(result.length).toBe(1);
-  });
-
-  it("should return an empty array if all users are invalid", () => {
-    const users: User[] = [
-      {
-        id: 3,
-        name: "",
-        email: "invalidemail",
-        role: "user",
-        createdAt: "2024-01-01",
-      },
-    ];
-
-    const result = validateUser(users);
-
-    expect(result.length).toBe(0);
-  });
+	it("should return errors for invalid user data", () => {
+		const users: User[] = [
+			{
+				id: 3,
+				name: "",
+				email: "invalidemail",
+				role: "user",
+				createdAt: "2024-01-01",
+			},
+		];
+		const result = validateUser(users);
+		expect(result.length).toBe(1);
+	});
 });
 
 describe("Order Validation", () => {
-  it("should keep only valid orders", () => {
-    const orders: Order[] = [
-      {
-        id: 1,
-        userId: 1,
-        amount: 20,
-        status: "Paid",
-        createdAt: "2020-09-09",
-      }
-    ];
+	it("should return zero errors for valid orders with existing users", () => {
+		const orders: Order[] = [
+			{ id: 1, userId: 1, amount: 20, status: "Paid", createdAt: "2020-09-09" },
+		];
+		const users: User[] = [
+			{
+				id: 1,
+				name: "Doe",
+				email: "doe@gmail.com",
+				role: "user",
+				createdAt: "2020-09-09",
+			},
+		];
+		const result = validateOrder(orders, users);
+		expect(result.length).toBe(0);
+	});
 
-    const users: User[] = [
-      {
-        id: 1,
-        name: "Doe",
-        email: "doe@gmail.com",
-        role: "user",
-        createdAt: "2020-09-09",
-      },
-    ];
+	it("should return an error if an order's userId does not exist in users", () => {
+		const orders: Order[] = [
+			{
+				id: 2,
+				userId: 99,
+				amount: 50,
+				status: "Pending",
+				createdAt: "2020-09-09",
+			},
+		];
+		const users: User[] = [
+			{
+				id: 1,
+				name: "AB",
+				email: "ab@gmail.com",
+				role: "user",
+				createdAt: "2020-09-09",
+			},
+		];
+		const result = validateOrder(orders, users);
 
-    const result = validateOrder(orders, users);
-
-    expect(result.length).toBe(1);
-   
-  });
-
-  it("should return an empty array if no orders are valid", () => {
-    const orders: Order[] = [
-      {
-        id: 2,
-        userId: 99, // non-existent user
-        amount: -50, // negative amount
-        status: "Pending",
-        createdAt: "invalid-date",
-      },
-    ];
-
-    const users: User[] = [
-      {
-        id: 1,
-        name: "AB",
-        email: "ab@gmail.com",
-        role: "user",
-        createdAt: "2020-09-09",
-      },
-    ];
-
-    const result = validateOrder(orders, users);
-
-    expect(result.length).toBe(0);
-  });
+		expect(result.length).toBe(1);
+		expect(result[0]?.errors).toContain("userId does not exist in users array");
+	});
 });
